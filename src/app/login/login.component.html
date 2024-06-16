@@ -1,0 +1,46 @@
+<div>
+    <div class="login-container">
+        <form [formGroup]="formUser" >
+            <img src="../../assets/img/logoSena.png" alt="" class="image-size">
+            <h2>App Fluvial</h2>
+            <div class="input-group">
+                <label for="username" class="form-label">Usuario</label>
+                <input type="text" formControlName="username" name="username" class="form-control"
+                    placeholder="Escribe tu username">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+                    <div *ngIf="username.errors?.['required']">
+                        Campo requerido.
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" formControlName="password" name="password" class="form-control"
+                    placeholder="Escribe tu contraseña">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                        <div *ngIf="password.errors?.['required']">
+                            Campo requerido.
+                        </div>
+                    </div>
+            </div>
+            <button [disabled]="formUser.invalid"[ngClass]="{'btn-disabled': formUser.invalid, 'btn-enabled': formUser.valid}" (click)="login()">Iniciar Sesión</button>
+            <div *ngIf="estado === 'inactivo' " class="alert">
+                 Usuario inactivo comunicate con el administrador.
+            </div>
+            <div class="milito">
+                <a
+                    href="mailto:?subject=Recuperar%20contraseña&body=Por%20favor%20ayúdame%20a%20recuperar%20mi%20contraseña">Recuperar
+                    Contraseña</a>
+            </div>
+            <div class="milito">
+                <a
+                    href="mailto:?subject=Recuperar%20contraseña&body=Por%20favor%20ayúdame%20a%20recuperar%20mi%20contraseña">Comunicate con el administrador</a>
+            </div>
+        </form>
+    </div>
+</div>
+<!--
+{{formUser.get('username')?.value}}
+<br>
+{{formUser.get('password')?.value}}
+-->

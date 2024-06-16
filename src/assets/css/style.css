@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../img/san_jose_port_river_guaviare.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    background-color: #f1f8ff9c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #17a307;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    color: #000000;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+button {
+    
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+/*
+button:hover {
+    background-color: #004d40;
+}*/
+.btn-disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+  
+.btn-enabled {
+    background-color: #17a307;
+    cursor: pointer;
+}
+
+.alert {
+    color: #ff2600;
+    margin-top: 10px;
+    text-align: left;
+}
+.milito {
+    margin-top: 10px;
+    text-align: center;
+    color: #17a307;
+}
+.image-size {
+    width: 80px; /* Ajusta este valor al ancho deseado */
+    height: 80px; /* Ajusta este valor a la altura deseada */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+
+@media (min-width: 600px) {
+    .login-container {
+        width: 400px;
+    }
+}
