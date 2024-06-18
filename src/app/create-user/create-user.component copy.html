@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Formulario de Inscripción</title>
+  <style>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .col-md-3 {
+      flex: 0 0 30%;
+      max-width: 30%;
+      margin-bottom: 20px;
+    }
+
+    .col-md-9 {
+      flex: 0 0 70%;
+      max-width: 70%;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .invalid-feedback {
+      display: block;
+      color: red;
+    }
+
+    .list-group-item.active {
+      background-color: #007bff;
+      border-color: #007bff;
+      color: white;
+    }
+
+    .list-group-item {
+      cursor: pointer;
+    }
+
+    .list-group-item:hover {
+      background-color: #f8f9fa;
+    }
+
+    .list-group-item-action:hover {
+      background-color: #a2b8ab;
+      color: white;
+    }
+    .btn-enabled {
+      background-color: #17a307;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header btn-enabled text-white">
+          Bienvenido: Pepito Perez Perez
+        </div>
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action">Crear Usuario</a>
+          <a href="#" class="list-group-item list-group-item-action">Actualizar Usuario</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header btn-enabled text-white">
+          Formulario de Inscripción
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="nombreCompleto">Nombre Completo</label>
+              <input type="text" id="nombreCompleto" class="form-control">
+              <div class="invalid-feedback">
+                El nombre completo es requerido
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" class="form-control">
+              <div class="invalid-feedback">
+                Los apellidos son requeridos
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoDocumento">Tipo de Documento</label>
+              <select id="tipoDocumento" class="form-control">
+                <option>DNI</option>
+                <option>Pasaporte</option>
+                <option>Cédula</option>
+              </select>
+              <div class="invalid-feedback">
+                El tipo de documento es requerido
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="numeroDocumento">Número de Documento</label>
+              <input type="text" id="numeroDocumento" class="form-control">
+              <div class="invalid-feedback">
+                El número de documento es requerido y debe ser numérico
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="sexo">Sexo</label>
+              <select id="sexo" class="form-control">
+                <option>Masculino</option>
+                <option>Femenino</option>
+                <option>Otro</option>
+              </select>
+              <div class="invalid-feedback">
+                El sexo es requerido
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="correoElectronico">Correo Electrónico</label>
+              <input type="email" id="correoElectronico" class="form-control">
+              <div class="invalid-feedback">
+                El correo electrónico es requerido y debe ser válido
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <select id="estado" class="form-control">
+                <option>Activo</option>
+                <option>Inactivo</option>
+              </select>
+              <div class="invalid-feedback">
+                El estado es requerido
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="celular">Celular</label>
+              <input type="text" id="celular" class="form-control">
+              <div class="invalid-feedback">
+                El celular es requerido y debe tener 10 dígitos
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoUsuario">Tipo de Usuario</label>
+              <select id="tipoUsuario" class="form-control">
+                <option>Administrador</option>
+                <option>Ejecutivo</option>
+              </select>
+              <div class="invalid-feedback">
+                El tipo de usuario es requerido
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-enabled btn-block">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
