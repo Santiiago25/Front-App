@@ -1,10 +1,9 @@
 
-.container {
+  .container {
     font-family: Arial, sans-serif;
-    max-width: 900px;
     margin: auto;
     padding: 20px;
-    background-color: #cbc6c66b;
+    background-color: #e3e3e3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 50px;
@@ -19,11 +18,12 @@
     flex: 0 0 30%;
     max-width: 30%;
     margin-bottom: 20px;
+    margin-right: 20px; /* Added margin to separate the menu from the form */
   }
 
   .col-md-9 {
-    flex: 0 0 70%;
-    max-width: 70%;
+    flex: 0 0 calc(70% - 20px); /* Adjusted width to account for the margin */
+    max-width: calc(70% - 20px); /* Adjusted width to account for the margin */
   }
 
   .card {
@@ -58,7 +58,6 @@
   }
 
   .form-control {
-    font-family: Arial, sans-serif;
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -115,3 +114,8 @@
     border-color: #007bff;
     color: white;
   }
+  .alert {
+    color: #ff2600;
+    margin-top: 10px;
+    text-align: left;
+}
