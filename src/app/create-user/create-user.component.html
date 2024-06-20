@@ -65,7 +65,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="sexo">Sexo</label>
                             <select formControlName="sexo" name="sexo" class="form-control">
                                 <option *ngFor="let sexo of sexos" [value]="sexo">{{ sexo }}</option>
@@ -75,12 +75,24 @@
                                     El sexo es requerido.
                                 </div>
                             </div>
+                        </div>-->
+
+                        <div class="form-group">
+                            <label for="celular">Celular:</label>
+                            <input formControlName="celular" name="celular" class="form-control" (input)="soloNumeros($event)" maxlength="10">
+                            <div *ngIf="celular.invalid && (celular.dirty || celular.touched)" class="alert">
+                                <div *ngIf="celular.errors?.['required']">
+                                    Este campo es obligatorio.</div>
+                                <div *ngIf="celular.errors?.['pattern']">
+                                    Solo se permiten números.
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="correoElectronico">Correo Electrónico</label>
                             <input type="email" formControlName="correoElectronico" name="correoElectronico"
-                                class="form-control" placeholder="Escibe un correo...">
+                                class="form-control" placeholder="Escribe un correo...">
                             <div *ngIf="correoElectronico.invalid && (correoElectronico.dirty || correoElectronico.touched)"
                                 class="alert">
                                 <div
@@ -95,24 +107,13 @@
                             <select formControlName="estado" name="estado" class="form-control">
                                 <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>>
                             </select>
-                            <div *ngIf="estado.invalid && (sexo.dirty || estado.touched)" class="alert">
+                            <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="alert">
                                 <div *ngIf="estado.errors?.['required']">
                                     El estado es requerido.
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         
-                        <div class="form-group">
-                            <label for="celular">Celular:</label>
-                            <input formControlName="celular" name="celular" class="form-control" (input)="soloNumeros($event)" maxlength="10">
-                            <div *ngIf="celular.invalid && (celular.dirty || celular.touched)" class="alert">
-                                <div *ngIf="celular.errors?.['required']">
-                                    Este campo es obligatorio.</div>
-                                <div *ngIf="celular.errors?.['pattern']">
-                                    Solo se permiten números.
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label for="tipoUsuario">Tipo de Usuario</label>
                             <select formControlName="tipoUsuario" name="tipoUsuario" class="form-control">
@@ -125,6 +126,43 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="pass">Contraseña</label>
+                            <input type="password" formControlName="pass" name="pass"
+                                class="form-control" placeholder="Escribe una contraseña...">
+                            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                                class="alert">
+                                <div
+                                    *ngIf="pass.errors?.['email'] || pass.errors?.['required']">
+                                    Contraseña requerida.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Usuario</label>
+                            <input type="username" formControlName="username" name="username"
+                                class="form-control" placeholder="Escribe un usuario...">
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                                class="alert">
+                                <div
+                                    *ngIf="username.errors?.['email'] || username.errors?.['required']">
+                                    Usuario requerido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rol">Rol</label>
+                            <select formControlName="rol" name="rol" class="form-control">
+                                <option *ngFor="let rol of roles" [value]="rol">{{ rol }}</option>>
+                            </select>
+                            <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="alert">
+                                <div *ngIf="rol.errors?.['required']">
+                                    El Rol es requerido.
+                                </div>
+                            </div>
+                        </div>
+
                         <button [disabled]="formUser.invalid"[ngClass]="{'btn-disabled': formUser.invalid, 'btn-enabled': formUser.valid}">Enviar</button>
                     </form>
                 </div>
@@ -132,3 +170,13 @@
         </div>
     </div>
 </div>
+
+<!-- Popup Modal -->
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <p>Usuario creado correctamente</p>
+      <button class="btn-close" (click)="closeModal()">Cerrar</button>
+    </div>
+</div>
+  
