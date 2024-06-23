@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "nit": 123456,
+        "company": "MyCompany",
+        "manager": "Manager Name",
+        "email": "manager@company.com",
+        "phone": "123456789",
+        "address": "Company Address",
+        "department": "Company Department",
+        "municipality": "Company Municipality"
+    },
+    {
+        "id": 2,
+        "nit": 899999034,
+        "company": "SENA",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "311124412",
+        "address": "SENA - MODELO",
+        "department": "GUAVIARE",
+        "municipality": "SAN JOSE DEL GUAVIARE"
+    },
+    {
+        "id": 3,
+        "nit": 899999034,
+        "company": "ECOPETROL",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "311124412",
+        "address": "SENA - MODELO",
+        "department": "GUAVIARE",
+        "municipality": "SAN JOSE DEL GUAVIARE"
+    }
+]

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   urlHost: 'http://localhost:8080/',
-  urlApi: 'https://loginfluvial.up.railway.app/auth/',
+  urlApiLogin: 'https://loginfluvial.up.railway.app/auth/',
+  urlApiCompany: '/assets/Company.json',
   userId: 1
 };
 

@@ -12,6 +12,7 @@ import { SimpleResult } from '../Model/SimpleResult';
 export class LoginServiceService {
   private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
   private loggedIn = false;
+  usuario: string = "";
 
   constructor(private http: HttpClient) { 
     // Recuperar el estado de autenticación desde localStorage si está disponible
@@ -26,13 +27,14 @@ export class LoginServiceService {
 
   login(credentials: LoginRequest): Observable<SimpleResult> {
     console.log("json: ", credentials);
-    return this.http.post<SimpleResult>(environment.urlApi + 'log-in', credentials)
+    return this.http.post<SimpleResult>(environment.urlApiLogin + 'log-in', credentials)
       .pipe(
         tap((result: SimpleResult) => {
           if (result.estado === 'activo') {
             this.loggedIn = true;
             if (this.isLocalStorageAvailable()) {
               localStorage.setItem('loggedIn', 'true');
+              localStorage.setItem('usuario', result.username);
             }
           }
         }),

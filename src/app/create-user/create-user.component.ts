@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators ,FormControl } from '@angular/forms';
 import { CreateUserRequest } from '../services/createUserRequest';
+import { CompanyService } from '../services/company.service';
+import { SimpleResultCompany } from '../Model/SimpleResultCompany';
 
 @Component({
   selector: 'app-create-user',
@@ -12,14 +14,15 @@ export class CreateUserComponent implements OnInit {
   submitted = false;
   inscripcionForm!: FormGroup;
   showModal = false; // Controla la visibilidad del modal
-
-  usuarioAutenticado = 'Pepito'; // Simulación del nombre del usuario autenticado
+  usuarioAutenticado: string | null = "";
+  loginError: string = "";
 
   tiposDocumento = ['DNI', 'Pasaporte', 'Cédula'];
   sexos = ['Masculino', 'Femenino', 'Otro'];
   estados = ['activo', 'inactivo'];
   tiposUsuarios = ['Administrador', 'Ejecutivo'];
-  roles = ['INVITED', 'INVITED2']
+  roles = ['INVITED', 'INVITED2'];
+  empresas = [];
 
   get nombres() {
     return this.formUser.get('nombres') as FormControl;
@@ -32,10 +35,10 @@ export class CreateUserComponent implements OnInit {
   }
   get numeroDocumento() {
     return this.formUser.get('numeroDocumento') as FormControl;
-  }/*
+  }
   get sexo() {
     return this.formUser.get('sexo') as FormControl;
-  }*/
+  }
   get correoElectronico() {
     return this.formUser.get('correoElectronico') as FormControl;
   }
@@ -57,25 +60,32 @@ export class CreateUserComponent implements OnInit {
   get rol() {
     return this.formUser.get('rol') as FormControl;
   }
+  get empresa() {
+    return this.formUser.get('empresa') as FormControl;
+  }
 
   formUser = new FormGroup({
     'nombres': new FormControl('', Validators.required),
     'Apellidos': new FormControl('', Validators.required),
     'tipoDocumento': new FormControl('', Validators.required),
     'numeroDocumento': new FormControl('', Validators.required),
-    //'sexo': new FormControl('', Validators.required),
+    'sexo': new FormControl('', Validators.required),
     'correoElectronico': new FormControl('', [Validators.required,Validators.email]),
     'estado': new FormControl('', Validators.required),
     'celular': new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
     'tipoUsuario': new FormControl('', Validators.required),
     'pass': new FormControl('', Validators.required),
     'username': new FormControl('', Validators.required),
-    'rol': new FormControl('', Validators.required)
+    'rol': new FormControl('', Validators.required),
+    'empresa': new FormControl('', Validators.required)
+    //Nombre empresa, direccion, verificar pass pero a nivel de front, departamento y ciudad 
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,private companyService: CompanyService) {}
 
   ngOnInit(): void {
+    this.usuarioAutenticado = localStorage.getItem('usuario');
+    this.getCompany();    
   }  
 
   onSubmit(): void {
@@ -95,6 +105,22 @@ export class CreateUserComponent implements OnInit {
 
     console.log('Formulario enviado', json);
     this.openModal();
+  }
+
+  getCompany(){
+    this.companyService.getCompanyService().subscribe({
+      next: (userData) => {
+        console.log("data: ", userData);
+        this.empresas = userData.map((company: SimpleResultCompany) => company.company);
+      },
+      error: (errorData) => {
+        console.error("error: ", errorData);
+        this.loginError = errorData.message || 'An error occurred';
+      },
+      complete: () => {
+        console.info("Company complet...");
+      }
+    });
   }
    // Métodos simulados para las opciones del menú
   crearUsuario() {

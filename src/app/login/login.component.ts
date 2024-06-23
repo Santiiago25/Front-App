@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginServiceService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {  }
 
   login() {
     const username = this.formUser.get('username')?.value || '';
