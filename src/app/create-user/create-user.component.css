@@ -55,6 +55,7 @@
   margin-bottom: 20px;
 }
 
+
 .card-header {
   font-size: 1.25rem;
   font-weight: bold;
@@ -62,15 +63,30 @@
   color: white;
   padding: 10px;
   border-radius: 10px 10px 0 0;
-  display: flex;
+  /*display: flex;*/
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* Cambiado de center a flex-start */
+  
+}
+
+.menu {
+  display: flex;
+}
+
+.cerrarSesion{
+  padding-top: 5px;
+}
+
+.usuario-nombre {
+  display: block;
+  margin-top: 5px; /* Añade un pequeño margen para separar del texto "Bienvenido:" */
 }
 
 .hamburger-menu {
   display: none;
   font-size: 24px;
   cursor: pointer;
+  margin-left: auto; /* Alinea el menú de hamburguesa a la derecha */
 }
 
 .card-body {
@@ -257,5 +273,11 @@
 
   .list-group.show {
     display: block; /* Show menu when .show class is added */
+  }
+
+  .col-md-3,
+  .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
