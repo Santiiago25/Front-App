@@ -1,0 +1,133 @@
+{
+    "departamentos": [
+      {
+        "nombre": "Amazonas",
+        "municipios": ["Leticia", "Puerto Nariño"]
+      },
+      {
+        "nombre": "Antioquia",
+        "municipios": ["Medellín", "Envigado", "Bello", "Itagüí", "Rionegro"]
+      },
+      {
+        "nombre": "Atlántico",
+        "municipios": ["Barranquilla", "Soledad", "Malambo", "Puerto Colombia"]
+      },
+      {
+        "nombre": "Bogotá",
+        "municipios": ["Bogotá D.C."]
+      },
+      {
+        "nombre": "Bolívar",
+        "municipios": ["Cartagena", "Magangué", "Turbaco", "Arjona"]
+      },
+      {
+        "nombre": "Boyacá",
+        "municipios": ["Tunja", "Duitama", "Sogamoso", "Chiquinquirá"]
+      },
+      {
+        "nombre": "Caldas",
+        "municipios": ["Manizales", "Villamaría", "Chinchiná", "Riosucio"]
+      },
+      {
+        "nombre": "Caquetá",
+        "municipios": ["Florencia", "Belén de los Andaquíes", "San Vicente del Caguán"]
+      },
+      {
+        "nombre": "Casanare",
+        "municipios": ["Yopal", "Aguazul", "Villanueva", "Maní"]
+      },
+      {
+        "nombre": "Cauca",
+        "municipios": ["Popayán", "Santander de Quilichao", "Puerto Tejada"]
+      },
+      {
+        "nombre": "Cesar",
+        "municipios": ["Valledupar", "Aguachica", "Codazzi", "Curumaní"]
+      },
+      {
+        "nombre": "Chocó",
+        "municipios": ["Quibdó", "Istmina", "Condoto"]
+      },
+      {
+        "nombre": "Córdoba",
+        "municipios": ["Montería", "Cereté", "Lorica", "Sahagún"]
+      },
+      {
+        "nombre": "Cundinamarca",
+        "municipios": ["Bogotá", "Soacha", "Fusagasugá", "Girardot"]
+      },
+      {
+        "nombre": "Guainía",
+        "municipios": ["Inírida"]
+      },
+      {
+        "nombre": "Guaviare",
+        "municipios": ["San José del Guaviare", "Calamar", "El Retorno"]
+      },
+      {
+        "nombre": "Huila",
+        "municipios": ["Neiva", "Pitalito", "Garzón", "La Plata"]
+      },
+      {
+        "nombre": "La Guajira",
+        "municipios": ["Riohacha", "Maicao", "Uribia", "Manaure"]
+      },
+      {
+        "nombre": "Magdalena",
+        "municipios": ["Santa Marta", "Ciénaga", "Fundación"]
+      },
+      {
+        "nombre": "Meta",
+        "municipios": ["Villavicencio", "Acacías", "Granada"]
+      },
+      {
+        "nombre": "Nariño",
+        "municipios": ["Pasto", "Tumaco", "Ipiales"]
+      },
+      {
+        "nombre": "Norte de Santander",
+        "municipios": ["Cúcuta", "Ocaña", "Pamplona"]
+      },
+      {
+        "nombre": "Putumayo",
+        "municipios": ["Mocoa", "Puerto Asís"]
+      },
+      {
+        "nombre": "Quindío",
+        "municipios": ["Armenia", "Montenegro", "Calarcá"]
+      },
+      {
+        "nombre": "Risaralda",
+        "municipios": ["Pereira", "Dosquebradas", "Santa Rosa de Cabal"]
+      },
+      {
+        "nombre": "San Andrés y Providencia",
+        "municipios": ["San Andrés", "Providencia"]
+      },
+      {
+        "nombre": "Santander",
+        "municipios": ["Bucaramanga", "Floridablanca", "Barrancabermeja"]
+      },
+      {
+        "nombre": "Sucre",
+        "municipios": ["Sincelejo", "Corozal", "Sampués"]
+      },
+      {
+        "nombre": "Tolima",
+        "municipios": ["Ibagué", "Espinal", "Melgar"]
+      },
+      {
+        "nombre": "Valle del Cauca",
+        "municipios": ["Cali", "Palmira", "Buenaventura"]
+      },
+      {
+        "nombre": "Vaupés",
+        "municipios": ["Mitú"]
+      },
+      {
+        "nombre": "Vichada",
+        "municipios": ["Puerto Carreño"]
+      }
+    ]
+  }
+  

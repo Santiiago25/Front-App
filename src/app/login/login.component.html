@@ -27,6 +27,9 @@
             <div *ngIf="estado === 'inactivo' " class="alert">
                  Usuario inactivo comunicate con el administrador.
             </div>
+            <div *ngIf="loginError === 'error service' " class="alert">
+                Servicio no disponible.
+           </div>
             <div class="milito">
                 <a
                     href="mailto:?subject=Recuperar%20contraseña&body=Por%20favor%20ayúdame%20a%20recuperar%20mi%20contraseña">Recuperar

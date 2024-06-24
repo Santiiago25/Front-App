@@ -1,0 +1,2 @@
+ng g service /services/company   
+ng g c crearEmpresa

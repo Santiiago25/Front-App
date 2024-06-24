@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(json).subscribe({
       next: (userData) => {
-        console.log("data: ", userData.estado);
+        //console.log("data: ", userData.estado);
         this.estado = userData.estado;
         if (this.estado === "activo") {
           this.router.navigateByUrl('/createUser');
@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (errorData) => {
-        console.error("error: ", errorData);
-        this.loginError = errorData.message || 'An error occurred';
+        //console.error("error en servicio: ", errorData);
+        this.loginError = "error service";
       },
       complete: () => {
         console.info("Login completo");

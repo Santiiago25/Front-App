@@ -1,0 +1,71 @@
+.container {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    padding: 20px;
+    background-color: #e3e3e3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    /* Added margin to separate the menu from the form */
+  }
+  
+  .col-md-9 {
+    flex: 0 0 calc(70% - 20px);
+    /* Adjusted width to account for the margin */
+    max-width: calc(70% - 20px);
+    /* Adjusted width to account for the margin */
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: #17a307;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  
+.list-group {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .list-group-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .list-group-item-action:hover {
+    background-color: #a2b8ab;
+    color: white;
+  }

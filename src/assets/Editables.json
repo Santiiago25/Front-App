@@ -1,0 +1,7 @@
+{
+    "tiposDocumento": ["DNI", "Pasaporte", "Cédula", "T.I"],
+    "sexos": ["Masculino", "Femenino", "Otro"],
+    "estados": ["activo", "inactivo"],
+    "tiposUsuarios": ["Administrador", "Ejecutivo"],
+    "roles": ["INVITED", "INVITED2"]
+  }

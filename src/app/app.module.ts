@@ -4,18 +4,22 @@ import { FormsModule, ReactiveFormsModule,FormControl } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './services/login-service.service';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { CreateUserComponent} from './create-user/create-user.component'
+import { CreateUserComponent} from './create-user/create-user.component';
+import { RouterModule } from '@angular/router';
+import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CrearEmpresaComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
     
   ],
   providers: [LoginServiceService,
