@@ -1,11 +1,24 @@
 .container {
     font-family: Arial, sans-serif;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     background-color: #e3e3e3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 50px;
+  }
+
+  .form-control {
+    width: 100%; /* Hace que los inputs y selects ocupen todo el ancho del contenedor */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Asegura un espacio uniforme entre los elementos del formulario */
+  }
+  
+  .custom-select {
+    width: 100%; /* Hace que los selects ocupen todo el ancho del contenedor */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
   }
   
   .row {
@@ -31,7 +44,7 @@
   .card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #f7f4f4;
     padding: 20px;
     margin-bottom: 20px;
   }
@@ -85,4 +98,6 @@
     color: black;
     text-decoration: none;
   }
+
+
   

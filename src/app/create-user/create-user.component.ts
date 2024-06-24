@@ -15,11 +15,13 @@ import { passwordMatchValidator } from '../validators/password-match.validator';
 export class CreateUserComponent implements OnInit {
   formUser: FormGroup;
   submitted = false;
-  showModal = false;
+  inscripcionForm!: FormGroup;
+  showModal = false; // Controla la visibilidad del modal
   usuarioAutenticado: string | null = "";
   createerror: string = "";
   editableError: string = "";
   departamentoError: string = "";
+  isMenuOpen = false; // Controla la visibilidad del menú
 
   tiposDocumento: string[] = [];
   sexos: string[] = [];
@@ -29,27 +31,27 @@ export class CreateUserComponent implements OnInit {
   empresas: string[] = [];
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
-  allDepartamentos: Departamento[] = [];
+  allDepartamentos: Departamento[] = []; // Lista completa de departamentos y sus municipios
 
-  constructor(private companyService: CompanyService, private fb: FormBuilder) {
-    this.formUser = this.fb.group({
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      tipoDocumento: ['', Validators.required],
-      numeroDocumento: ['', Validators.required],
-      sexo: ['', Validators.required],
-      correoElectronico: ['', [Validators.required, Validators.email]],
-      estado: ['', Validators.required],
-      celular: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      tipoUsuario: ['', Validators.required],
-      pass: ['', Validators.required],
-      passconf: ['', Validators.required],
-      username: ['', Validators.required],
-      rol: ['', Validators.required],
-      empresa: ['', Validators.required],
-      departamento: ['', Validators.required],
-      municipio: ['', Validators.required],
-      direccion: ['', Validators.required]
+  constructor(private formBuilder: FormBuilder, private companyService: CompanyService, private fb: FormBuilder) {
+    this.formUser = new FormGroup({
+      'nombres': new FormControl('', Validators.required),
+      'apellidos': new FormControl('', Validators.required),
+      'tipoDocumento': new FormControl('', Validators.required),
+      'numeroDocumento': new FormControl('', Validators.required),
+      'sexo': new FormControl('', Validators.required),
+      'correoElectronico': new FormControl('', [Validators.required, Validators.email]),
+      'estado': new FormControl('', Validators.required),
+      'celular': new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
+      'tipoUsuario': new FormControl('', Validators.required),
+      'pass': new FormControl('', Validators.required),
+      'passconf': new FormControl('', Validators.required),
+      'username': new FormControl('', Validators.required),
+      'rol': new FormControl('', Validators.required),
+      'empresa': new FormControl('', Validators.required),
+      'departamento': new FormControl('', Validators.required),
+      'municipio': new FormControl('', Validators.required),
+      'direccion': new FormControl('', Validators.required),
     }, { validators: passwordMatchValidator('pass', 'passconf') });
 
     this.formUser.get('departamento')?.valueChanges.subscribe(departamento => {
@@ -67,8 +69,6 @@ export class CreateUserComponent implements OnInit {
     this.getEditables();
     this.getDepartamentos();
   }
-
-  get f() { return this.formUser.controls; }
 
   onSubmit(): void {
     this.submitted = true;
@@ -89,7 +89,7 @@ export class CreateUserComponent implements OnInit {
     this.openModal();
   }
 
-  getCompany(): void {
+  getCompany() {
     this.companyService.getCompanyService().subscribe({
       next: (userData) => {
         this.empresas = userData.map((company: SimpleResultCompany) => company.company);
@@ -131,7 +131,7 @@ export class CreateUserComponent implements OnInit {
       },
       error: (errorData) => {
         this.departamentoError = 'Error al obtener los departamentos';
-        console.error(this.departamentoError);
+        console.log(this.departamentoError);
       },
       complete: () => {
         console.info("Departamentos complete...");
@@ -144,10 +144,20 @@ export class CreateUserComponent implements OnInit {
     this.municipios = departamento ? departamento.municipios : [];
   }
 
+  crearUsuario() {
+    console.log('Crear usuario');
+  }
+
+  actualizarUsuario() {
+    console.log('Actualizar usuario');
+  }
+
   soloNumeros(event: any): void {
     const pattern = /[0-9]/;
     const inputChar = String.fromCharCode(event.charCode);
+
     if (!pattern.test(inputChar)) {
+      // Detener la entrada de caracteres que no sean números
       event.preventDefault();
     }
   }
@@ -160,7 +170,12 @@ export class CreateUserComponent implements OnInit {
     this.showModal = false;
   }
 
-  logout(){
-    
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  logout() {
+    localStorage.removeItem('usuario');
+    // Redirige al login
   }
 }
