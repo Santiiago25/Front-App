@@ -110,6 +110,23 @@
   background-color: #a2b8ab;
   color: white;
 }
+.custom-link a {
+  color: black;
+  text-decoration: none;
+}
+
+.custom-link a:hover {
+  color: black;
+  text-decoration: none;
+  font-weight: bold; /* O cualquier otro estilo para el hover */
+}
+
+/* Si quieres un estilo específico para el estado activo */
+.custom-link a:active {
+  color: black;
+  text-decoration: none;
+}
+
 
 .active {
   background-color: #007bff;

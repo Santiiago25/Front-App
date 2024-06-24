@@ -34,7 +34,7 @@ export class CompanyService {
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    console.error("Error en el servicio ontener company:", error);
+    console.error("Error en el servicio ", error);
     return throwError('Algo salió mal; por favor, inténtelo de nuevo más tarde.');
   }
 }
