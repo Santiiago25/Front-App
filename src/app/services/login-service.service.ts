@@ -10,15 +10,8 @@ import { SimpleResult } from '../Model/SimpleResult';
   providedIn: 'root'
 })
 export class LoginServiceService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
-  private loggedIn = false;
-  usuario: string = "";
 
   constructor(private http: HttpClient) {}
-
-  login1(): Observable<any> {
-    return this.http.get(this.apiUrl);
-  }
 
   login(credentials: LoginRequest): Observable<SimpleResult> {
     console.log("json: ", credentials);
@@ -26,7 +19,7 @@ export class LoginServiceService {
       .pipe(
         tap((result: SimpleResult) => {
           if (result.estado === 'activo') {
-            this.loggedIn = true;
+            localStorage.setItem('authToken', result.jwt);
           }
         }),
         catchError(this.handleError)
@@ -34,12 +27,22 @@ export class LoginServiceService {
   }
 
   isLoggedIn(): boolean {
-    return this.loggedIn;
+    if (this.isBrowser()) {
+      return !!localStorage.getItem('authToken');
+    }
+    return false;
   }
 
-  logout(){
-    return this.loggedIn = false;
+  logout() {
+    if (this.isBrowser()) {
+      localStorage.clear();
+    }
   }
+
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
+  
   private handleError(error: HttpErrorResponse) {
     console.error("error service: ", error);  // Manejo de errores más detallado
     return throwError('Something went wrong; please try again later.');

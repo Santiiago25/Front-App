@@ -7,6 +7,8 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { CreateUserComponent} from './create-user/create-user.component';
 import { RouterModule } from '@angular/router';
 import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './validators/interceptors';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
     RouterModule
     
   ],
-  providers: [LoginServiceService,
-    provideHttpClient(withFetch())]
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, LoginServiceService,
+    provideHttpClient(withFetch()),]
 })
 export class AppModule { }

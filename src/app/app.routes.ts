@@ -7,12 +7,10 @@ import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 
 
 export const routes: Routes = [
-    {path:'',redirectTo:'/login', pathMatch:'full'},
     {path:'login', component: LoginComponent},
     {path: 'createUser', component:CreateUserComponent, canActivate: [AuthGuard]},
     {path: 'createCompany', component:CrearEmpresaComponent, canActivate: [AuthGuard]},
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: '**', redirectTo: '/login', pathMatch: 'full' }
+    { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SimpleResultDepartamentos, Departamento } from '../Model/SimpleResultDepartamentos';
 import { CompanyService } from '../services/company.service';
+import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
   selector: 'app-crear-empresa',
@@ -17,9 +18,8 @@ export class CrearEmpresaComponent {
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
   allDepartamentos: Departamento[] = [];
-  loginServiceService: any;
 
-  constructor(private fb: FormBuilder, private companyService: CompanyService) {
+  constructor(private fb: FormBuilder, private companyService: CompanyService, private loginServiceService: LoginServiceService) {
     this.formUser = new FormGroup({
       'nit': new FormControl('', Validators.required),
       'nomEmpresa': new FormControl('', Validators.required),

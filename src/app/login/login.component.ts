@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(json).subscribe({
       next: (userData) => {
-        //console.log("data: ", userData.estado);
+        console.log("data: ", userData.jwt);
         this.estado = userData.estado;
         if (this.estado === "activo") {
           this.router.navigateByUrl('/createUser');
