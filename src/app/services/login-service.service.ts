@@ -14,12 +14,7 @@ export class LoginServiceService {
   private loggedIn = false;
   usuario: string = "";
 
-  constructor(private http: HttpClient) { 
-    // Recuperar el estado de autenticación desde localStorage si está disponible
-    if (this.isLocalStorageAvailable()) {
-      this.loggedIn = !!localStorage.getItem('loggedIn');
-    }
-  }
+  constructor(private http: HttpClient) {}
 
   login1(): Observable<any> {
     return this.http.get(this.apiUrl);
@@ -33,7 +28,6 @@ export class LoginServiceService {
           if (result.estado === 'activo') {
             this.loggedIn = true;
             if (this.isLocalStorageAvailable()) {
-              localStorage.setItem('loggedIn', 'true');
               localStorage.setItem('usuario', result.username);
             }
           }
@@ -46,12 +40,6 @@ export class LoginServiceService {
     return this.loggedIn;
   }
 
-  logout(): void {
-    this.loggedIn = false;
-    if (this.isLocalStorageAvailable()) {
-      localStorage.removeItem('loggedIn');
-    }
-  }
 
   private isLocalStorageAvailable(): boolean {
     try {

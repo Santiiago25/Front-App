@@ -15,7 +15,6 @@ import { passwordMatchValidator } from '../validators/password-match.validator';
 export class CreateUserComponent implements OnInit {
   formUser: FormGroup;
   submitted = false;
-  inscripcionForm!: FormGroup;
   showModal = false; // Controla la visibilidad del modal
   usuarioAutenticado: string | null = "";
   createerror: string = "";
@@ -33,7 +32,7 @@ export class CreateUserComponent implements OnInit {
   municipios: string[] = [];
   allDepartamentos: Departamento[] = []; // Lista completa de departamentos y sus municipios
 
-  constructor(private formBuilder: FormBuilder, private companyService: CompanyService, private fb: FormBuilder) {
+  constructor( private companyService: CompanyService, private fb: FormBuilder) {
     this.formUser = new FormGroup({
       'nombres': new FormControl('', Validators.required),
       'apellidos': new FormControl('', Validators.required),

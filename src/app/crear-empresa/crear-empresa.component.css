@@ -1,103 +1,283 @@
 .container {
-    font-family: Arial, sans-serif;
-    margin: auto;
-    padding: 40px;
-    background-color: #e3e3e3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
+  font-family: Arial, sans-serif;
+  margin: auto;
+  padding: 20px;
+  background-color: #e3e3e3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
 
-  .form-control {
-    width: 100%; /* Hace que los inputs y selects ocupen todo el ancho del contenedor */
-    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
-  }
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  .form-group {
-    margin-bottom: 15px; /* Asegura un espacio uniforme entre los elementos del formulario */
-  }
+.form-group {
+  margin-bottom: 15px;
+}
+
+.custom-select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3,
+.col-md-9 {
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.col-md-3 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.col-md-9 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f7f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #17a307;
+  color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  /*display: flex;*/
+  justify-content: space-between;
+  align-items: flex-start; /* Cambiado de center a flex-start */
   
-  .custom-select {
-    width: 100%; /* Hace que los selects ocupen todo el ancho del contenedor */
-    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
+}
+
+.menu {
+  display: flex;
+}
+
+.cerrarSesion{
+  padding-top: 5px;
+}
+
+.usuario-nombre {
+  display: block;
+  margin-top: 5px; /* Añade un pequeño margen para separar del texto "Bienvenido:" */
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto; /* Alinea el menú de hamburguesa a la derecha */
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #17a307;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #148d06;
+}
+
+.invalid-feedback {
+  display: block;
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.list-group {
+  list-style-type: none;
+  padding: 0;
+  display: none; /* Hide menu by default */
+}
+
+.list-group.show {
+  display: block; /* Show menu when .show class is added */
+}
+
+.list-group-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item-action:hover {
+  background-color: #a2b8ab;
+  color: white;
+}
+
+.custom-link a {
+  color: black;
+  text-decoration: none;
+}
+
+.custom-link a:hover {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-link a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.alert {
+  color: #ff2600;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.modal {
+  font-family: Arial, sans-serif;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-close {
+  background-color: #17a307;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-close:hover {
+  background-color: #148d06;
+}
+
+@media (min-width: 768px) {
   .col-md-3 {
     flex: 0 0 30%;
     max-width: 30%;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    /* Added margin to separate the menu from the form */
   }
-  
+
   .col-md-9 {
-    flex: 0 0 calc(70% - 20px);
-    /* Adjusted width to account for the margin */
-    max-width: calc(70% - 20px);
-    /* Adjusted width to account for the margin */
-  }
-  
-  .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f7f4f4;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .card-header {
-    font-size: 1.25rem;
-    font-weight: bold;
-    background-color: #17a307;
-    color: white;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+    flex: 0 0 70%;
+    max-width: 70%;
   }
 
-  
-.list-group {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .list-group-item {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .list-group-item:last-child {
-    border-bottom: none;
-  }
-  
-  .list-group-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .list-group-item-action:hover {
-    background-color: #a2b8ab;
-    color: white;
-  }
-  .custom-link a {
-    color: black;
-    text-decoration: none;
-  }
-  
-  .custom-link a:hover {
-    color: black;
-    text-decoration: none;
-    font-weight: bold; /* O cualquier otro estilo para el hover */
-  }
-  
-  /* Si quieres un estilo específico para el estado activo */
-  .custom-link a:active {
-    color: black;
-    text-decoration: none;
+  .hamburger-menu {
+    display: none;
   }
 
+  .list-group {
+    display: block !important; /* Ensure the menu is always shown on larger screens */
+  }
+}
 
-  
+@media (max-width: 767px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .list-group {
+    display: none; /* Hide menu by default on mobile */
+  }
+
+  .list-group.show {
+    display: block; /* Show menu when .show class is added */
+  }
+
+  .col-md-3,
+  .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
