@@ -22,7 +22,7 @@ export class LoginServiceService {
 
   login(credentials: LoginRequest): Observable<SimpleResult> {
     console.log("json: ", credentials);
-    return this.http.post<SimpleResult>(environment.urlApiLogin + 'login', credentials)
+    return this.http.post<SimpleResult>(environment.urlApiLogin + 'log-in', credentials)
       .pipe(
         tap((result: SimpleResult) => {
           if (result.estado === 'activo') {
