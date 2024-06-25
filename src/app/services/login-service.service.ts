@@ -20,6 +20,7 @@ export class LoginServiceService {
         tap((result: SimpleResult) => {
           if (result.estado === 'activo') {
             localStorage.setItem('authToken', result.jwt);
+            localStorage.setItem('usuario', result.username);
           }
         }),
         catchError(this.handleError)
@@ -42,7 +43,7 @@ export class LoginServiceService {
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
-  
+
   private handleError(error: HttpErrorResponse) {
     console.error("error service: ", error);  // Manejo de errores más detallado
     return throwError('Something went wrong; please try again later.');

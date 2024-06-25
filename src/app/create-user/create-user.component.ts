@@ -17,7 +17,7 @@ export class CreateUserComponent implements OnInit {
   formUser: FormGroup;
   submitted = false;
   showModal = false; // Controla la visibilidad del modal
-  usuarioAutenticado = "armandito";
+  usuarioAutenticado: string | null = "";
   createerror: string = "";
   editableError: string = "";
   departamentoError: string = "";
@@ -64,6 +64,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = localStorage.getItem('usuario');
     this.getCompany();
     this.getEditables();
     this.getDepartamentos();

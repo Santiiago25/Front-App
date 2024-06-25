@@ -11,9 +11,9 @@ import { LoginServiceService } from '../services/login-service.service';
 })
 export class CrearEmpresaComponent {
   formUser: FormGroup;
-  usuarioAutenticado = " armandito";
   isMenuOpen = false;
   departamentoError: string = "";
+  usuarioAutenticado: string | null = "";
 
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
@@ -40,6 +40,7 @@ export class CrearEmpresaComponent {
    }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = localStorage.getItem('usuario');
     this.getDepartamentos();
   }
 
