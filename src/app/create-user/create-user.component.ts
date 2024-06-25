@@ -6,6 +6,7 @@ import { SimpleResultCompany } from '../Model/SimpleResultCompany';
 import { SimpleResultEditables } from '../Model/SimpleResultEditables';
 import { SimpleResultDepartamentos, Departamento } from '../Model/SimpleResultDepartamentos';
 import { passwordMatchValidator } from '../validators/password-match.validator';
+import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
   selector: 'app-create-user',
@@ -16,7 +17,7 @@ export class CreateUserComponent implements OnInit {
   formUser: FormGroup;
   submitted = false;
   showModal = false; // Controla la visibilidad del modal
-  usuarioAutenticado: string | null = "";
+  usuarioAutenticado = "armandito";
   createerror: string = "";
   editableError: string = "";
   departamentoError: string = "";
@@ -32,7 +33,7 @@ export class CreateUserComponent implements OnInit {
   municipios: string[] = [];
   allDepartamentos: Departamento[] = []; // Lista completa de departamentos y sus municipios
 
-  constructor( private companyService: CompanyService, private fb: FormBuilder) {
+  constructor( private companyService: CompanyService, private fb: FormBuilder, private loginServiceService: LoginServiceService) {
     this.formUser = new FormGroup({
       'nombres': new FormControl('', Validators.required),
       'apellidos': new FormControl('', Validators.required),
@@ -63,7 +64,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usuarioAutenticado = localStorage.getItem('usuario');
     this.getCompany();
     this.getEditables();
     this.getDepartamentos();
@@ -174,7 +174,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('usuario');
-    // Redirige al login
+    this.loginServiceService.logout();
+    window.location.reload();
   }
 }

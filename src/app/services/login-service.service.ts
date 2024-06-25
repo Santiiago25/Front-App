@@ -27,9 +27,6 @@ export class LoginServiceService {
         tap((result: SimpleResult) => {
           if (result.estado === 'activo') {
             this.loggedIn = true;
-            if (this.isLocalStorageAvailable()) {
-              localStorage.setItem('usuario', result.username);
-            }
           }
         }),
         catchError(this.handleError)
@@ -40,18 +37,9 @@ export class LoginServiceService {
     return this.loggedIn;
   }
 
-
-  private isLocalStorageAvailable(): boolean {
-    try {
-      const test = '__localStorage_test__';
-      localStorage.setItem(test, test);
-      localStorage.removeItem(test);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  logout(){
+    return this.loggedIn = false;
   }
-
   private handleError(error: HttpErrorResponse) {
     console.error("error service: ", error);  // Manejo de errores más detallado
     return throwError('Something went wrong; please try again later.');

@@ -17,6 +17,7 @@ export class CrearEmpresaComponent {
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
   allDepartamentos: Departamento[] = [];
+  loginServiceService: any;
 
   constructor(private fb: FormBuilder, private companyService: CompanyService) {
     this.formUser = new FormGroup({
@@ -80,6 +81,8 @@ export class CrearEmpresaComponent {
   }
 
   logout() {
+    this.loginServiceService.logout();
+    window.location.reload();
   }
 
 }
