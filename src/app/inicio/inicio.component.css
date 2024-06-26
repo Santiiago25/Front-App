@@ -10,7 +10,7 @@
 
 /* Header Styles */
 .header {
-    background: #84ffb4ad;
+    background: #a9ffca8a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     position: sticky;
@@ -43,7 +43,7 @@ nav {
 
 .logo {
     flex: 1;
-    text-align: center;
+    text-align: left;
 }
 
 .logo img {
@@ -73,6 +73,7 @@ nav {
 .cta-buttons {
     display: flex;
     gap: 10px;
+    padding: 0 20px;
 }
 
 .login-button {
@@ -197,6 +198,7 @@ footer p {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        padding: 0 20px;
     }
 
     .nav-links {
