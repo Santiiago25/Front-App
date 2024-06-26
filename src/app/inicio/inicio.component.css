@@ -1,0 +1,222 @@
+.container {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #84ffb4ad;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #0bc004;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: none;
+    border: 2px solid #333;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.login-button:hover {
+    background: #333;
+    color: #fff;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: url('../../assets/img/rio.png') no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;  /* Ajusta la altura para que ocupe el 100% de la pantalla */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 120px auto;
+}
+
+.hero h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+/* Footer Section */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .hero {
+        background: url('../../assets/img/RGuaviare.jpg') no-repeat center center/cover;
+    }
+
+    .hero h1 {
+        font-size: 4em;
+    }
+
+    .hero p {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        background: url('../../assets/img/RGuaviare.jpg') no-repeat center center/cover;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta-buttons {
+        margin-top: 10px;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #84ffb4ad;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .hero-content {
+        margin: 60px auto;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .hero {
+        background: url('../../assets/img/rio576.png') no-repeat center center/cover;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .login-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}

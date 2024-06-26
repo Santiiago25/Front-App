@@ -9,12 +9,14 @@ import { RouterModule } from '@angular/router';
 import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './validators/interceptors';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     CreateUserComponent,
-    CrearEmpresaComponent
+    CrearEmpresaComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

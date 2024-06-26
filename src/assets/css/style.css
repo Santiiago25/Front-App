@@ -2,17 +2,18 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    
-  }
+}
+
 .container-login {
     font-family: Arial, sans-serif;
     background-color: #e0f7fa;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('../img/san_jose_port_river_guaviare.jpg');
+    background-image: url('../img/RGuaviare.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,7 +21,7 @@ body, html {
 }
 
 .login-container {
-    background-color: #f1f8ff9c;
+    background-color: #f1f8ffc9;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -53,7 +54,6 @@ h2 {
 }
 
 button {
-    
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -61,15 +61,12 @@ button {
     cursor: pointer;
     width: 100%;
 }
-/*
-button:hover {
-    background-color: #004d40;
-}*/
+
 .btn-disabled {
     background-color: grey;
     cursor: not-allowed;
 }
-  
+
 .btn-enabled {
     background-color: #17a307;
     cursor: pointer;
@@ -80,17 +77,34 @@ button:hover {
     margin-top: 10px;
     text-align: left;
 }
+
 .milito {
     margin-top: 10px;
     text-align: center;
     color: #17a307;
 }
+
 .image-size {
-    width: 80px; /* Ajusta este valor al ancho deseado */
-    height: 80px; /* Ajusta este valor a la altura deseada */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
 
+.cta-button {
+    background: #17a307;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background 0.3s;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.cta-button:hover {
+    background: #0b2904;
+}
 
 @media (min-width: 600px) {
     .login-container {
