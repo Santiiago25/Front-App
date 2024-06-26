@@ -1,6 +1,7 @@
+
 .container {
     font-family: Arial, sans-serif;
-    width: 80%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -8,13 +9,13 @@
 
 /* Header Styles */
 .header {
-    background: #fff;
+    background: #84ffb4ad;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #84ffb4ad;
+    width: 100%;
 }
 
 nav {
@@ -22,6 +23,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     position: relative;
+    width: 100%;
 }
 
 .hamburger {
@@ -136,16 +138,17 @@ nav {
 .hero {
     background: url('../../assets/img/rio.png') no-repeat center center/cover;
     color: #fff;
-    height: 100vh;  /* Ajusta la altura para que ocupe el 100% de la pantalla */
+    width: 100%;
+    height: 100vh;  /* Asegura que ocupe el 100% de la pantalla */
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
 }
 
 .hero-content {
-    max-width: 600px;
-    margin: 120px auto;
+    padding-top: 300px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -164,6 +167,7 @@ footer {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    width: 100%;
 }
 
 footer p {
@@ -173,7 +177,7 @@ footer p {
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     .hero {
-        background: url('../../assets/img/RGuaviare.jpg') no-repeat center center/cover;
+        background: url('../../assets/img/rio.png') no-repeat center center/cover;
     }
 
     .hero h1 {
@@ -184,7 +188,7 @@ footer p {
         font-size: 1.8em;
     }
 }
-
+/*
 @media (max-width: 992px) {
     .hero {
         background: url('../../assets/img/RGuaviare.jpg') no-repeat center center/cover;
@@ -206,7 +210,7 @@ footer p {
     .hero p {
         font-size: 1.5em;
     }
-}
+}*/
 
 @media (max-width: 768px) {
     .hamburger {
@@ -230,12 +234,13 @@ footer p {
     }
 
     .hero {
-        height: auto;
-        padding: 40px 0;
+        background: url('../../assets/img/rio576.png') no-repeat center center/cover;
+        height: 100vh;  /* Ajusta la altura para que ocupe el 100% de la pantalla */
+        padding: 0;
     }
 
     .hero-content {
-        margin: 60px auto;
+        padding-top: 450px;
     }
 
     .hero h1 {
@@ -255,6 +260,12 @@ footer p {
 
     .hero {
         background: url('../../assets/img/rio576.png') no-repeat center center/cover;
+        height: 100vh;
+        padding: 0;
+    }
+    .hero-content {
+        padding-top: 300px;
+        margin: 0 auto;
     }
 
     .hero h1 {
