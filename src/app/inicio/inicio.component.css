@@ -1,4 +1,5 @@
 
+
 .container {
     font-family: Arial, sans-serif;
     width: 100%;
@@ -83,6 +84,7 @@ nav {
     border: 2px solid #333;
     color: #333;
     transition: background 0.3s, color 0.3s;
+    white-space: nowrap;  /* Evita el desbordamiento del texto */
 }
 
 .login-button:hover {
@@ -142,13 +144,16 @@ nav {
     height: 100vh;  /* Asegura que ocupe el 100% de la pantalla */
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;  /* Mueve el contenido al fondo */
     align-items: center;
 }
 
 .hero-content {
-    padding-top: 300px;
     margin: 0 auto;
+    padding: 20px;  /* Añade un poco de relleno */
+    background: rgba(0, 0, 0, 0.5);  /* Fondo semi-transparente para el texto */
+    border-radius: 10px;
+    margin-bottom: 20px;  /* Añade un margen inferior para separar del fondo */
 }
 
 .hero h1 {
@@ -158,7 +163,7 @@ nav {
 
 .hero p {
     font-size: 1em;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* Footer Section */
@@ -181,36 +186,13 @@ footer p {
     }
 
     .hero h1 {
-        font-size: 4em;
-    }
-
-    .hero p {
-        font-size: 1.8em;
-    }
-}
-/*
-@media (max-width: 992px) {
-    .hero {
-        background: url('../../assets/img/RGuaviare.jpg') no-repeat center center/cover;
-    }
-
-    nav {
-        align-items: center;
-        padding-right: 30px;
-    }
-
-    .cta-buttons {
-        margin-top: 10px;
-    }
-
-    .hero h1 {
         font-size: 3em;
     }
 
     .hero p {
         font-size: 1.5em;
     }
-}*/
+}
 
 @media (max-width: 768px) {
     .hamburger {
@@ -240,7 +222,11 @@ footer p {
     }
 
     .hero-content {
-        padding-top: 450px;
+        margin: 0 auto;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        margin-bottom: 20px;
     }
 
     .hero h1 {
@@ -264,8 +250,11 @@ footer p {
         padding: 0;
     }
     .hero-content {
-        padding-top: 300px;
         margin: 0 auto;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        margin-bottom: 20px;
     }
 
     .hero h1 {
