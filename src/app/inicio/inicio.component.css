@@ -1,7 +1,6 @@
 .container {
     font-family: Arial, sans-serif;
     width: 80%;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -99,12 +98,12 @@ nav {
 }
 
 .hero h1 {
-    font-size: 5em;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 2em;
+    font-size: 1em;
     margin-bottom: 30px;
 }
 
