@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
+ 
+  menuActive: boolean = false;
 
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
 }

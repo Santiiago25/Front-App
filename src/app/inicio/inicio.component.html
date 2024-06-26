@@ -1,26 +1,32 @@
-<header>
+<div class="header">
     <div class="container">
         <nav>
             <div class="logo">
-                <img src="../../assets/img/logoSena.png" alt="Planhat Logo">
+                <img src="assets/img/logoSena.png" alt="Planhat Logo">
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Donde se encuentra mi envió</a></li>
-                <li><a href="#">Quienes somos</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Company</a></li>
+            <div class="hamburger" (click)="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" [class.active]="menuActive">
+                <li><a routerLink="#">Donde se encuentra mi envió</a></li>
+                <li><a routerLink="#">Quienes somos</a></li>
+                <li><a routerLink="#">Resources</a></li>
+                <li><a routerLink="#">Company</a></li>
             </ul>
             <div class="cta-buttons">
-                <a [routerLink]="['/login']" class="login-button">Login</a>
+                <a routerLink="/login" class="login-button">Login</a>
             </div>
         </nav>
     </div>
-</header>
+</div>
+
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>Sistemas de operaciones Logísticas del transporte Fluvial - Guaviare</h1>
+            <h1>Sistemas de operaciones Logísticas del transporte Fluvial - Guaviare</h1>
             <p>Nunca habia sido tan facil gestionar tus envios en nuestro sector fluvial.</p>
         </div>
     </div>
