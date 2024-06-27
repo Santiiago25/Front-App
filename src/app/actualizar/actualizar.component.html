@@ -37,7 +37,7 @@
                     </ul>
                 </ul>
                 <div class="cerrarSesion">
-                    <button class="btn-enabled" (click)="logout()">Cerrar sesión</button>
+                    <button class="cta-buttonSesion" (click)="logout()">Cerrar sesión</button>
                 </div>
             </div>
         </div>
@@ -58,36 +58,51 @@
                         </div>
                     </form>
                     <div *ngIf="tabla" class="table-responsive">
-                        <table class="styled-table">
-                            <thead>
-                                <tr>
-                                    <th>NIT</th>
-                                    <th>Nombre</th>
-                                    <th>Dueño</th>
-                                    <th>Email</th>
-                                    <th>Celular</th>
-                                    <th>Dirección</th>
-                                    <th>Departamento</th>
-                                    <th>Municipio</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let empresa of empresas">
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.nit }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.company }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.manager }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.email }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.phone }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.address }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.department }}</td>
-                                    <td (click)="editEmpresa(empresa)">{{ empresa.municipality }}</td>
-                                    <td (click)="editEmpresa(empresa)">
-                                        <button class="edit-button" (click)="editEmpresa(empresa)">Editar</button>
-                                    </td>
-                                </tr>
-                            </tbody>
+                        <table mat-table [dataSource]="empresasPaginadas" class="styled-table">
+                            <ng-container matColumnDef="nit">
+                                <th mat-header-cell *matHeaderCellDef>NIT</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.nit }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="company">
+                                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.company }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="manager">
+                                <th mat-header-cell *matHeaderCellDef>Dueño</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.manager }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef>Email</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.email }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="phone">
+                                <th mat-header-cell *matHeaderCellDef>Celular</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.phone }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="address">
+                                <th mat-header-cell *matHeaderCellDef>Dirección</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.address }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="department">
+                                <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.department }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="municipality">
+                                <th mat-header-cell *matHeaderCellDef>Municipio</th>
+                                <td mat-cell *matCellDef="let empresa">{{ empresa.municipality }}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="acciones">
+                                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                                <td mat-cell *matCellDef="let empresa">
+                                    <button class="edit-button" (click)="editEmpresa(empresa)">Editar</button>
+                                </td>
+                            </ng-container>
+                    
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
+                        <mat-paginator [length]="empresas.length" [pageSize]="5" (page)="onPageChange($event)">
+                        </mat-paginator>
                     </div>
                     <!--<hr class="divider" *ngIf="editar">-->
                     <div *ngIf="editar">

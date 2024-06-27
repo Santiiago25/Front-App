@@ -82,6 +82,7 @@
 
 .cerrarSesion {
   padding-top: 5px;
+  text-align: -webkit-center;
 }
 
 .usuario-nombre {

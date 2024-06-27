@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './validators/interceptors';
 import { InicioComponent } from './inicio/inicio.component';
 import { ActualizarComponent } from './actualizar/actualizar.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ActualizarComponent } from './actualizar/actualizar.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule,
+    MatTableModule
     
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, LoginServiceService,

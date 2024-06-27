@@ -58,7 +58,7 @@
 .card-header {
   font-size: 1.25rem;
   font-weight: bold;
-  background-color: #17a307;
+  background-color: #28a745;
   color: white;
   padding: 10px;
   border-radius: 10px 10px 0 0;
@@ -74,6 +74,7 @@
 
 .cerrarSesion{
   padding-top: 5px;
+  text-align: -webkit-center;
 }
 
 .usuario-nombre {
@@ -116,12 +117,12 @@
   border-radius: 5px;
   border: none;
   color: white;
-  background-color: #17a307;
+  background-color: #28a745;
   cursor: pointer;
 }
 
 .btn:hover {
-  background-color: #148d06;
+  background-color: #135c0b;
 }
 
 .invalid-feedback {
@@ -185,16 +186,20 @@
   text-decoration: none;
 }
 
-.active {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: white;
-}
-
 .alert {
   color: #ff2600;
   margin-top: 10px;
   text-align: left;
+}
+
+.cta-buttonSesion {
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+  display: inline-block;
+  width: 140px;
 }
 
 .modal {

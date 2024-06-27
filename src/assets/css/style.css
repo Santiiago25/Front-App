@@ -5,14 +5,16 @@
     box-sizing: border-box;
 }
 
+
 html, body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;  /* Evita el desbordamiento horizontal */
 }
 
+
 .container-login {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
     background-color: #e0f7fa;
     display: flex;
     flex-direction: column;
@@ -98,7 +100,7 @@ button {
 }
 
 .cta-button {
-    background: #17a307;
+    background: #28a745;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -112,6 +114,8 @@ button {
 .cta-button:hover {
     background: #0b2904;
 }
+
+
 
 @media (min-width: 600px) {
     .login-container {

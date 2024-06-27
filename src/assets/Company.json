@@ -31,5 +31,102 @@
         "address": "SENA - MODELO",
         "department": "Putumayo",
         "municipality": "Mocoa"
+    },
+    {
+        "id": 1,
+        "nit": 1234569,
+        "company": "COLOMBINA",
+        "manager": "Manager Name",
+        "email": "manager@company.com",
+        "phone": "3214567896",
+        "address": "Company Address",
+        "department": "Guaviare",
+        "municipality": "San José del Guaviare"
+    },
+    {
+        "id": 2,
+        "nit": 1234568,
+        "company": "SENA",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3111244122",
+        "address": "SENA - MODELO",
+        "department": "Meta",
+        "municipality": "Villavicencio"
+    },
+    {
+        "id": 3,
+        "nit": 1234567,
+        "company": "ECOPETROL",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3254567896",
+        "address": "SENA - MODELO",
+        "department": "Putumayo",
+        "municipality": "Mocoa"
+    },{
+        "id": 1,
+        "nit": 123459,
+        "company": "COLOMBINA",
+        "manager": "Manager Name",
+        "email": "manager@company.com",
+        "phone": "3214567896",
+        "address": "Company Address",
+        "department": "Guaviare",
+        "municipality": "San José del Guaviare"
+    },
+    {
+        "id": 2,
+        "nit": 123458,
+        "company": "SENA",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3111244122",
+        "address": "SENA - MODELO",
+        "department": "Meta",
+        "municipality": "Villavicencio"
+    },
+    {
+        "id": 3,
+        "nit": 123457,
+        "company": "ECOPETROL",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3254567896",
+        "address": "SENA - MODELO",
+        "department": "Putumayo",
+        "municipality": "Mocoa"
+    },{
+        "id": 1,
+        "nit": 12345678,
+        "company": "COLOMBINA",
+        "manager": "Manager Name",
+        "email": "manager@company.com",
+        "phone": "3214567896",
+        "address": "Company Address",
+        "department": "Guaviare",
+        "municipality": "San José del Guaviare"
+    },
+    {
+        "id": 2,
+        "nit": 12345679,
+        "company": "SENA",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3111244122",
+        "address": "SENA - MODELO",
+        "department": "Meta",
+        "municipality": "Villavicencio"
+    },
+    {
+        "id": 3,
+        "nit": 123456781,
+        "company": "ECOPETROL",
+        "manager": "Gustavo",
+        "email": "senaguaviare@sena.edu.co",
+        "phone": "3254567896",
+        "address": "SENA - MODELO",
+        "department": "Putumayo",
+        "municipality": "Mocoa"
     }
 ]

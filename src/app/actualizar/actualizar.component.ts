@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+// actualizar.component.ts
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Departamento, SimpleResultDepartamentos } from '../Model/SimpleResultDepartamentos';
 import { CompanyService } from '../services/company.service';
 import { LoginServiceService } from '../services/login-service.service';
-
+import { PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 interface Empresa {
   id: number;
@@ -16,13 +18,13 @@ interface Empresa {
   department: string;
   municipality: string;
 }
+
 @Component({
   selector: 'app-actualizar',
   templateUrl: './actualizar.component.html',
-  styleUrls: ['./actualizar.component.css','./actualizar.component_2.css']
+  styleUrls: ['./actualizar.component.css', './actualizar.component_2.css']
 })
-export class ActualizarComponent {
-
+export class ActualizarComponent implements OnInit {
   formUser: FormGroup;
   formbuscar: FormGroup;
   isMenuOpen = false;
@@ -32,7 +34,10 @@ export class ActualizarComponent {
   usuarioAutenticado: string | null = "";
   editar = false;
   tabla = true;
+  currentPage = 0;
+  pageSize = 5;
 
+  empresasPaginadas = new MatTableDataSource<Empresa>();
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
   allDepartamentos: Departamento[] = [];
@@ -40,6 +45,8 @@ export class ActualizarComponent {
   empresas: Empresa[] = [];
   bucarnit: string[] = [];
   empresaEncontrada: Empresa | undefined;
+
+  displayedColumns: string[] = ['nit', 'company', 'manager', 'email', 'phone', 'address', 'department', 'municipality', 'acciones'];
 
   constructor(private fb: FormBuilder, private companyService: CompanyService, private loginServiceService: LoginServiceService) {
     this.formUser = new FormGroup({
@@ -52,6 +59,7 @@ export class ActualizarComponent {
       'departamento': new FormControl('', Validators.required),
       'municipio': new FormControl('', Validators.required)
     });
+
     this.formUser.get('departamento')?.valueChanges.subscribe(departamento => {
       if (departamento) {
         this.onDepartamentoChange(departamento);
@@ -59,10 +67,11 @@ export class ActualizarComponent {
         this.municipios = [];
       }
     });
+
     this.formbuscar = new FormGroup({
       'search': new FormControl('', Validators.required)
     });
-   }
+  }
 
   ngOnInit(): void {
     this.usuarioAutenticado = localStorage.getItem('usuario');
@@ -72,30 +81,20 @@ export class ActualizarComponent {
 
   onSubmit(): void {}
 
-  onBuscar(): void {
-    /*const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número 
-    if (!isNaN(nit)) {
-      this.buscarEmpresaPorNit(nit, this.empresas);
-      this.buscar = true;
-      console.log("buscar ",this.buscar);
-    } else {
-      console.error("NIT inválido");
-    }*/
-
-  }
+  onBuscar(): void {}
 
   getCompany() {
     this.companyService.getCompanyService().subscribe({
       next: (userData) => {
-        this.empresas = userData  
+        this.empresas = userData;
+        this.setPageData(this.currentPage, this.pageSize);
       },
       error: (errorData) => {
-        this.createerror = "error Obteniendo company...";
+        this.createerror = "Error obteniendo company...";
         console.error(this.createerror);
       },
       complete: () => {
-        console.info("Company complet...", this.empresas);
-        
+        console.info("Company completado...", this.empresas);
       }
     });
   }
@@ -111,7 +110,7 @@ export class ActualizarComponent {
         console.log(this.departamentoError);
       },
       complete: () => {
-        console.info("Departamentos complete...");
+        console.info("Departamentos completado...");
       }
     });
   }
@@ -124,10 +123,10 @@ export class ActualizarComponent {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-  
+
   toggleSubMenuCrear() {
     this.isSubMenuOpenCrear = !this.isSubMenuOpenCrear;
-  }  
+  }
 
   toggleSubMenuActualizar() {
     this.isSubMenuOpenActualizar = !this.isSubMenuOpenActualizar;
@@ -138,7 +137,6 @@ export class ActualizarComponent {
     const inputChar = String.fromCharCode(event.charCode);
 
     if (!pattern.test(inputChar)) {
-      // Detener la entrada de caracteres que no sean números
       event.preventDefault();
     }
   }
@@ -148,8 +146,6 @@ export class ActualizarComponent {
     window.location.reload();
   }
 
-  ////////////////////////////////////////
-  
   editEmpresa(empresa: Empresa) {
     this.tabla = false;
     this.editar = true;
@@ -163,11 +159,23 @@ export class ActualizarComponent {
       municipio: empresa.municipality,
       direccion: empresa.address,
     });
-    this.isSubMenuOpenActualizar = true; // Mostrar el formulario de actualización
+    this.isSubMenuOpenActualizar = true;
   }
-  volver(){
+
+  volver() {
     this.tabla = true;
     this.editar = false;
+  }
 
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.setPageData(this.currentPage, this.pageSize);
+  }
+
+  setPageData(pageIndex: number, pageSize: number) {
+    const startIndex = pageIndex * pageSize;
+    const endIndex = startIndex + pageSize;
+    this.empresasPaginadas.data = this.empresas.slice(startIndex, endIndex);
   }
 }
