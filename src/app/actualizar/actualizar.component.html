@@ -1,3 +1,4 @@
+<!-- actualizar.component.html -->
 <div class="container">
     <div class="row">
         <div class="col-md-3">
@@ -44,7 +45,7 @@
             <div class="card">
                 <div class="card-header">Formulario para Actualizacion de datos de tu empresa </div>
                 <div class="card-body">
-                    <form [formGroup]="formbuscar" (ngSubmit)="onBuscar()">
+                    <form [formGroup]="formbuscar" (ngSubmit)="onBuscar()" *ngIf="tabla">
                         <div class="form-group">
                             <label for="search">Buscar Empresa</label>
                             <div class="input-group justify-content-center">
@@ -56,10 +57,43 @@
                             </div>
                         </div>
                     </form>
-                    <hr class="divider" *ngIf="buscar">
-                    <div *ngIf="buscar">
+                    <div *ngIf="tabla" class="table-responsive">
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>NIT</th>
+                                    <th>Nombre</th>
+                                    <th>Dueño</th>
+                                    <th>Email</th>
+                                    <th>Celular</th>
+                                    <th>Dirección</th>
+                                    <th>Departamento</th>
+                                    <th>Municipio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let empresa of empresas">
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.nit }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.company }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.manager }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.email }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.phone }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.address }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.department }}</td>
+                                    <td (click)="editEmpresa(empresa)">{{ empresa.municipality }}</td>
+                                    <td (click)="editEmpresa(empresa)">
+                                        <button class="edit-button" (click)="editEmpresa(empresa)">Editar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--<hr class="divider" *ngIf="editar">-->
+                    <div *ngIf="editar">
                         <div class="card-body">
                             <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+                                <button class="cta-buttonVolver" (click)="volver()">&#8592; Volver</button>
                                 <div class="form-group">
                                     <label for="nit">NIT</label>
                                     <input type="text" formControlName="nit" class="form-control"

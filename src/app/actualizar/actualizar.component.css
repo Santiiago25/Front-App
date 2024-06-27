@@ -65,7 +65,7 @@
 .card-header {
   font-size: 1.25rem;
   font-weight: bold;
-  background-color: #17a307;
+  background-color: #28a745;
   color: white;
   padding: 10px;
   border-radius: 10px 10px 0 0;
@@ -99,7 +99,7 @@
 }
 
 .card-body {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .form-group {
@@ -283,6 +283,75 @@
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+  background-color: #28a745;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 1px 10px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #28a745;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #218838;
+}
+
+
+
+.cta-buttonVolver {
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background 0.3s;
+  display: inline-block;
+  margin-bottom:  20px;
+  width: 140px;
+}
+
+.cta-buttonVolver:hover {
+  background: #144b08;
 }
 
 

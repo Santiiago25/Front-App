@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Departamento, SimpleResultDepartamentos } from '../Model/SimpleResultDepartamentos';
 import { CompanyService } from '../services/company.service';
 import { LoginServiceService } from '../services/login-service.service';
-import { SimpleResultCompany } from '../Model/SimpleResultCompany';
 
 
 interface Empresa {
@@ -31,7 +30,8 @@ export class ActualizarComponent {
   isSubMenuOpenActualizar = false;
   departamentoError: string = "";
   usuarioAutenticado: string | null = "";
-  buscar = false;
+  editar = false;
+  tabla = true;
 
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
@@ -67,26 +67,26 @@ export class ActualizarComponent {
   ngOnInit(): void {
     this.usuarioAutenticado = localStorage.getItem('usuario');
     this.getDepartamentos();
+    this.getCompany();
   }
 
   onSubmit(): void {}
   onBuscar(): void {
-    this.getCompany();
+    /*const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número 
+    if (!isNaN(nit)) {
+      this.buscarEmpresaPorNit(nit, this.empresas);
+      this.buscar = true;
+      console.log("buscar ",this.buscar);
+    } else {
+      console.error("NIT inválido");
+    }*/
+
   }
 
   getCompany() {
     this.companyService.getCompanyService().subscribe({
       next: (userData) => {
-        this.empresas = userData
-        const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número
-        if (!isNaN(nit)) {
-          this.buscarEmpresaPorNit(nit, this.empresas);
-          this.buscar = true;
-          console.log("buscar ",this.buscar);
-        } else {
-          console.error("NIT inválido");
-        }
-        
+        this.empresas = userData  
       },
       error: (errorData) => {
         this.createerror = "error Obteniendo company...";
@@ -148,28 +148,25 @@ export class ActualizarComponent {
   }
 
   ////////////////////////////////////////
+  
+  editEmpresa(empresa: Empresa) {
+    this.tabla = false;
+    this.editar = true;
+    this.formUser.patchValue({
+      nit: empresa.nit,
+      nomEmpresa: empresa.company,
+      dueñoEmpresa: empresa.manager,
+      correoCorp: empresa.email,
+      celular: empresa.phone,
+      departamento: empresa.department,
+      municipio: empresa.municipality,
+      direccion: empresa.address,
+    });
+    this.isSubMenuOpenActualizar = true; // Mostrar el formulario de actualización
+  }
+  volver(){
+    this.tabla = true;
+    this.editar = false;
 
-  buscarEmpresaPorNit(nit: number, empre: Empresa[]) {
-    console.log('Buscando NIT:', nit);
-    console.log('Empresas:', empre);
-
-    this.empresaEncontrada = empre.find((empresa: Empresa) => empresa.nit === nit);
-
-    if (this.empresaEncontrada) {
-      console.log('Empresa encontrada:', this.empresaEncontrada);
-      // Aquí puedes hacer lo que necesites con la empresa encontrada
-      this.formUser.patchValue({
-        nit: this.empresaEncontrada.nit,
-        nomEmpresa: this.empresaEncontrada.company,
-        dueñoEmpresa: this.empresaEncontrada.manager,
-        correoCorp: this.empresaEncontrada.email,
-        celular: this.empresaEncontrada.phone,
-        departamento: this.empresaEncontrada.department,
-        municipio: this.empresaEncontrada.municipality,
-        direccion: this.empresaEncontrada.address,
-      });
-    } else {
-      console.log('Empresa no encontrada');
-    }
   }
 }
