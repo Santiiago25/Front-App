@@ -1,0 +1,169 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Bienvenido:
+                    <div class="menu">
+                        <div class="usuario-nombre">{{usuarioAutenticado}}</div>
+                        <div class="hamburger-menu" (click)="toggleMenu()">
+                            &#9776;
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group" [class.show]="isMenuOpen">                    
+                    <li class="list-group-item list-group-item-action custom-link" (click)="toggleSubMenuCrear()">
+                        Crear
+                    </li>
+                    <ul *ngIf="isSubMenuOpenCrear">
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/createCompany']">Crear Empresa</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/createUser']">Crear Usuario</a>
+                        </li>
+                    </ul>
+                    <li class="list-group-item list-group-item-action custom-link" (click)="toggleSubMenuActualizar()">
+                        Actualizar
+                    </li>
+                    <ul *ngIf="isSubMenuOpenActualizar">
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/Actualizar']">Actualizar Empresa</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/updateCompany']">Actualizar usuario</a>
+                        </li>
+                    </ul>
+                </ul>
+                <div class="cerrarSesion">
+                    <button class="btn-enabled" (click)="logout()">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">Formulario para Actualizacion de datos de tu empresa </div>
+                <div class="card-body">
+                    <form [formGroup]="formbuscar" (ngSubmit)="onBuscar()">
+                        <div class="form-group">
+                            <label for="search">Buscar Empresa</label>
+                            <div class="input-group justify-content-center">
+                                <input type="text" id="search" formControlName="search" class="form-control">
+                                <div class="input-group-append">
+                                    <button [disabled]="formbuscar.invalid"
+                            [ngClass]="{'btn-disabled': formbuscar.invalid, 'btn-enabled': formbuscar.valid}">buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr class="divider" *ngIf="buscar">
+                    <div *ngIf="buscar">
+                        <div class="card-body">
+                            <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <label for="nit">NIT</label>
+                                    <input type="text" formControlName="nit" class="form-control"
+                                        placeholder="Escribe el NIT de tu empresa...">
+                                    <div *ngIf="formUser.controls['nit'].invalid && (formUser.controls['nit'].dirty || formUser.controls['nit'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['nit'].errors?.['required']">Campo Nit requerido.
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="nomEmpresa">Nombre de la empresa</label>
+                                    <input type="text" formControlName="nomEmpresa" class="form-control"
+                                        placeholder="Escribe el Nombre de tu empresa...">
+                                    <div *ngIf="formUser.controls['nomEmpresa'].invalid && (formUser.controls['nomEmpresa'].dirty || formUser.controls['nomEmpresa'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['nomEmpresa'].errors?.['required']">Campo Nombre empresa requerido.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dueñoEmpresa">Nombre del titular de la empresa</label>
+                                    <input type="text" formControlName="dueñoEmpresa" class="form-control"
+                                        placeholder="Escribe el Nombre del titular de tu empresa...">
+                                    <div *ngIf="formUser.controls['dueñoEmpresa'].invalid && (formUser.controls['dueñoEmpresa'].dirty || formUser.controls['dueñoEmpresa'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['dueñoEmpresa'].errors?.['required']">Campo Nombre titular empresa requerido.
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="correoCorp">Correo Electrónico de la empresa</label>
+                                    <input type="email" formControlName="correoCorp" class="form-control"
+                                        placeholder="Escribe un correo...">
+                                    <div *ngIf="formUser.controls['correoCorp'].invalid && (formUser.controls['correoCorp'].dirty || formUser.controls['correoCorp'].touched)"
+                                        class="alert">
+                                        <div
+                                            *ngIf="formUser.controls['correoCorp'].errors?.['required'] || formUser.controls['correoCorp'].errors?.['email']">
+                                            El correo electrónico es requerido y debe ser válido.
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="celular">Celular</label>
+                                    <input formControlName="celular" class="form-control" (input)="soloNumeros($event)"
+                                        maxlength="10">
+                                    <div *ngIf="formUser.controls['celular'].invalid && (formUser.controls['celular'].dirty || formUser.controls['celular'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['celular'].errors?.['required']">Este campo es
+                                            obligatorio.</div>
+                                        <div *ngIf="formUser.controls['celular'].errors?.['pattern']">Solo se permiten números.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="departamento">Departamento</label>
+                                    <select formControlName="departamento" class="form-control custom-select">
+                                        <option value="" disabled selected>Seleccione un departamento</option>
+                                        <option *ngFor="let departamento of NomDepartamentos" [value]="departamento">{{
+                                            departamento }}</option>
+                                    </select>
+                                    <div *ngIf="formUser.controls['departamento'].invalid && (formUser.controls['departamento'].dirty || formUser.controls['departamento'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['departamento'].errors?.['required']">Departamento
+                                            requerido.</div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="municipio">Ciudad</label>
+                                    <select formControlName="municipio" class="form-control custom-select">
+                                        <option value="" disabled selected>Seleccione una ciudad</option>
+                                        <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="formUser.controls['municipio'].invalid && (formUser.controls['municipio'].dirty || formUser.controls['municipio'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['municipio'].errors?.['required']">Ciudad requerida.</div>
+                                    </div>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="direccion">Dirección</label>
+                                    <input type="text" formControlName="direccion" class="form-control"
+                                        placeholder="Escribe una dirección...">
+                                    <div *ngIf="formUser.controls['direccion'].invalid && (formUser.controls['direccion'].dirty || formUser.controls['direccion'].touched)"
+                                        class="alert">
+                                        <div *ngIf="formUser.controls['direccion'].errors?.['required']">Dirección requerida.
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <button [disabled]="formUser.invalid"
+                                    [ngClass]="{'btn-disabled': formUser.invalid, 'btn-enabled': formUser.valid}">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

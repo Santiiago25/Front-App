@@ -10,13 +10,15 @@ import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './validators/interceptors';
 import { InicioComponent } from './inicio/inicio.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     CreateUserComponent,
     CrearEmpresaComponent,
-    InicioComponent
+    InicioComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,45 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SimpleResultDepartamentos, Departamento } from '../Model/SimpleResultDepartamentos';
+import { Departamento, SimpleResultDepartamentos } from '../Model/SimpleResultDepartamentos';
 import { CompanyService } from '../services/company.service';
 import { LoginServiceService } from '../services/login-service.service';
+import { SimpleResultCompany } from '../Model/SimpleResultCompany';
 
+
+interface Empresa {
+  id: number;
+  nit: number;
+  company: string;
+  manager: string;
+  email: string;
+  phone: string;
+  address: string;
+  department: string;
+  municipality: string;
+}
 @Component({
-  selector: 'app-crear-empresa',
-  templateUrl: './crear-empresa.component.html',
-  styleUrl: './crear-empresa.component.css'
+  selector: 'app-actualizar',
+  templateUrl: './actualizar.component.html',
+  styleUrl: './actualizar.component.css'
 })
-export class CrearEmpresaComponent {
+export class ActualizarComponent {
+
   formUser: FormGroup;
+  formbuscar: FormGroup;
   isMenuOpen = false;
   isSubMenuOpenCrear = false;
   isSubMenuOpenActualizar = false;
   departamentoError: string = "";
   usuarioAutenticado: string | null = "";
+  buscar = false;
 
   NomDepartamentos: string[] = [];
   municipios: string[] = [];
   allDepartamentos: Departamento[] = [];
+  createerror: string = "";
+  empresas: Empresa[] = [];
+  bucarnit: string[] = [];
+  empresaEncontrada: Empresa | undefined;
 
   constructor(private fb: FormBuilder, private companyService: CompanyService, private loginServiceService: LoginServiceService) {
     this.formUser = new FormGroup({
@@ -39,6 +59,9 @@ export class CrearEmpresaComponent {
         this.municipios = [];
       }
     });
+    this.formbuscar = new FormGroup({
+      'search': new FormControl('', Validators.required)
+    });
    }
 
   ngOnInit(): void {
@@ -47,6 +70,34 @@ export class CrearEmpresaComponent {
   }
 
   onSubmit(): void {}
+  onBuscar(): void {
+    this.getCompany();
+  }
+
+  getCompany() {
+    this.companyService.getCompanyService().subscribe({
+      next: (userData) => {
+        this.empresas = userData
+        const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número
+        if (!isNaN(nit)) {
+          this.buscarEmpresaPorNit(nit, this.empresas);
+          this.buscar = true;
+          console.log("buscar ",this.buscar);
+        } else {
+          console.error("NIT inválido");
+        }
+        
+      },
+      error: (errorData) => {
+        this.createerror = "error Obteniendo company...";
+        console.error(this.createerror);
+      },
+      complete: () => {
+        console.info("Company complet...", this.empresas);
+        
+      }
+    });
+  }
 
   getDepartamentos(): void {
     this.companyService.getDepartamentos().subscribe({
@@ -72,7 +123,7 @@ export class CrearEmpresaComponent {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
+  
   toggleSubMenuCrear() {
     this.isSubMenuOpenCrear = !this.isSubMenuOpenCrear;
   }  
@@ -96,4 +147,29 @@ export class CrearEmpresaComponent {
     window.location.reload();
   }
 
+  ////////////////////////////////////////
+
+  buscarEmpresaPorNit(nit: number, empre: Empresa[]) {
+    console.log('Buscando NIT:', nit);
+    console.log('Empresas:', empre);
+
+    this.empresaEncontrada = empre.find((empresa: Empresa) => empresa.nit === nit);
+
+    if (this.empresaEncontrada) {
+      console.log('Empresa encontrada:', this.empresaEncontrada);
+      // Aquí puedes hacer lo que necesites con la empresa encontrada
+      this.formUser.patchValue({
+        nit: this.empresaEncontrada.nit,
+        nomEmpresa: this.empresaEncontrada.company,
+        dueñoEmpresa: this.empresaEncontrada.manager,
+        correoCorp: this.empresaEncontrada.email,
+        celular: this.empresaEncontrada.phone,
+        departamento: this.empresaEncontrada.department,
+        municipio: this.empresaEncontrada.municipality,
+        direccion: this.empresaEncontrada.address,
+      });
+    } else {
+      console.log('Empresa no encontrada');
+    }
+  }
 }

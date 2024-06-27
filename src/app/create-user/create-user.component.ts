@@ -22,6 +22,8 @@ export class CreateUserComponent implements OnInit {
   editableError: string = "";
   departamentoError: string = "";
   isMenuOpen = false; // Controla la visibilidad del menú
+  isSubMenuOpenCrear = false;
+  isSubMenuOpenActualizar = false;
 
   tiposDocumento: string[] = [];
   sexos: string[] = [];
@@ -174,6 +176,14 @@ export class CreateUserComponent implements OnInit {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  toggleSubMenuCrear() {
+    this.isSubMenuOpenCrear = !this.isSubMenuOpenCrear;
+  }  
+
+  toggleSubMenuActualizar() {
+    this.isSubMenuOpenActualizar = !this.isSubMenuOpenActualizar;
+  }
+  
   logout() {
     this.loginServiceService.logout();
     window.location.reload();

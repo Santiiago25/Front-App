@@ -4,9 +4,16 @@
   background-color: #e3e3e3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  width: auto;
+  min-height: 100vh; /* Mínimo igual a la altura del viewport */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+.divider {
+  border: 1px solid #ccc;
+  margin: 20px 0;
 }
 
 .form-control {
@@ -64,28 +71,31 @@
   border-radius: 10px 10px 0 0;
   /*display: flex;*/
   justify-content: space-between;
-  align-items: flex-start; /* Cambiado de center a flex-start */
-  
+  align-items: flex-start;
+  /* Cambiado de center a flex-start */
+
 }
 
 .menu {
   display: flex;
 }
 
-.cerrarSesion{
+.cerrarSesion {
   padding-top: 5px;
 }
 
 .usuario-nombre {
   display: block;
-  margin-top: 5px; /* Añade un pequeño margen para separar del texto "Bienvenido:" */
+  margin-top: 5px;
+  /* Añade un pequeño margen para separar del texto "Bienvenido:" */
 }
 
 .hamburger-menu {
   display: none;
   font-size: 24px;
   cursor: pointer;
-  margin-left: auto; /* Alinea el menú de hamburguesa a la derecha */
+  margin-left: auto;
+  /* Alinea el menú de hamburguesa a la derecha */
 }
 
 .card-body {
@@ -118,6 +128,7 @@
   color: white;
   background-color: #17a307;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .btn:hover {
@@ -133,11 +144,13 @@
 .list-group {
   list-style-type: none;
   padding: 0;
-  display: none; /* Hide menu by default */
+  display: none;
+  /* Hide menu by default */
 }
 
 .list-group.show {
-  display: block; /* Show menu when .show class is added */
+  display: block;
+  /* Show menu when .show class is added */
 }
 
 .list-group-item {
@@ -168,6 +181,7 @@
   border: none;
   padding-left: 30px;
 }
+
 
 .custom-link a {
   color: black;
@@ -251,6 +265,27 @@
   background-color: #148d06;
 }
 
+.input-group {
+  display: flex;
+  justify-content: left;
+}
+
+.input-group .form-control {
+  max-width: 300px;
+  /* Opcional: para limitar el ancho del campo de entrada */
+}
+
+.input-group .input-group-append .btn-narrow {
+  padding-left: 10px;
+  /* Menor padding en los lados */
+  padding-right: 10px;
+  /* Menor padding en los lados */
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+
 @media (min-width: 768px) {
   .col-md-3 {
     flex: 0 0 30%;
@@ -267,7 +302,8 @@
   }
 
   .list-group {
-    display: block !important; /* Ensure the menu is always shown on larger screens */
+    display: block !important;
+    /* Ensure the menu is always shown on larger screens */
   }
 }
 
@@ -277,11 +313,13 @@
   }
 
   .list-group {
-    display: none; /* Hide menu by default on mobile */
+    display: none;
+    /* Hide menu by default on mobile */
   }
 
   .list-group.show {
-    display: block; /* Show menu when .show class is added */
+    display: block;
+    /* Show menu when .show class is added */
   }
 
   .col-md-3,

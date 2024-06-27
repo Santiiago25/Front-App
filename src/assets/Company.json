@@ -5,31 +5,31 @@
         "company": "COLOMBINA",
         "manager": "Manager Name",
         "email": "manager@company.com",
-        "phone": "123456789",
+        "phone": "3214567896",
         "address": "Company Address",
-        "department": "Company Department",
-        "municipality": "Company Municipality"
+        "department": "Guaviare",
+        "municipality": "San José del Guaviare"
     },
     {
         "id": 2,
-        "nit": 899999034,
+        "nit": 1234567,
         "company": "SENA",
         "manager": "Gustavo",
         "email": "senaguaviare@sena.edu.co",
-        "phone": "311124412",
+        "phone": "3111244122",
         "address": "SENA - MODELO",
-        "department": "GUAVIARE",
-        "municipality": "SAN JOSE DEL GUAVIARE"
+        "department": "Meta",
+        "municipality": "Villavicencio"
     },
     {
         "id": 3,
-        "nit": 899999034,
+        "nit": 12345678,
         "company": "ECOPETROL",
         "manager": "Gustavo",
         "email": "senaguaviare@sena.edu.co",
-        "phone": "311124412",
+        "phone": "3254567896",
         "address": "SENA - MODELO",
-        "department": "GUAVIARE",
-        "municipality": "SAN JOSE DEL GUAVIARE"
+        "department": "Putumayo",
+        "municipality": "Mocoa"
     }
 ]

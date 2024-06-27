@@ -1,12 +1,12 @@
 .container {
   font-family: Arial, sans-serif;
-  margin: auto;
   padding: 20px;
   background-color: #e3e3e3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-control {
@@ -157,6 +157,16 @@
 .list-group-item-action:hover {
   background-color: #a2b8ab;
   color: white;
+}
+
+.list-group ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.list-group ul .list-group-item {
+  border: none;
+  padding-left: 30px;
 }
 
 .custom-link a {

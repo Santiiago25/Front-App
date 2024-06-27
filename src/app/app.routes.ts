@@ -5,6 +5,7 @@ import { AuthGuard } from './auth.guard'; // Asegúrate de ajustar la ruta segú
 import { NgModule } from '@angular/core';
 import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
 
 
 export const routes: Routes = [
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path:'login', component: LoginComponent},
     {path: 'createUser', component:CreateUserComponent, canActivate: [AuthGuard]},
     {path: 'createCompany', component:CrearEmpresaComponent, canActivate: [AuthGuard]},
+    {path: 'Actualizar', component:ActualizarComponent, canActivate: [AuthGuard]},
     { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
 

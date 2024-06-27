@@ -11,13 +11,29 @@
                         </div>
                     </div>
                 </div>
-                <ul class="list-group" [class.show]="isMenuOpen">
-                    <li class="list-group-item list-group-item-action custom-link">
-                        <a [routerLink]="['/createCompany']">Crear Empresa</a>
+                <ul class="list-group" [class.show]="isMenuOpen">                    
+                    <li class="list-group-item list-group-item-action custom-link" (click)="toggleSubMenuCrear()">
+                        Crear
                     </li>
-                    <li class="list-group-item list-group-item-action custom-link">
-                        <a [routerLink]="['/createUser']">Crear Usuario</a>
+                    <ul *ngIf="isSubMenuOpenCrear">
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/createCompany']">Crear Empresa</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/createUser']">Crear Usuario</a>
+                        </li>
+                    </ul>
+                    <li class="list-group-item list-group-item-action custom-link" (click)="toggleSubMenuActualizar()">
+                        Actualizar
                     </li>
+                    <ul *ngIf="isSubMenuOpenActualizar">
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/Actualizar']">Actualizar Empresa</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action custom-link">
+                            <a [routerLink]="['/updateCompany']">Actualizar usuario</a>
+                        </li>
+                    </ul>
                 </ul>
                 <div class="cerrarSesion">
                     <button class="btn-enabled" (click)="logout()">Cerrar sesión</button>
