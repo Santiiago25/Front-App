@@ -19,7 +19,7 @@ interface Empresa {
 @Component({
   selector: 'app-actualizar',
   templateUrl: './actualizar.component.html',
-  styleUrl: './actualizar.component.css'
+  styleUrls: ['./actualizar.component.css','./actualizar.component_2.css']
 })
 export class ActualizarComponent {
 
@@ -71,7 +71,7 @@ export class ActualizarComponent {
   }
 
   onSubmit(): void {}
-  
+
   onBuscar(): void {
     /*const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número 
     if (!isNaN(nit)) {

@@ -1,0 +1,160 @@
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-close {
+  background-color: #17a307;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-close:hover {
+  background-color: #148d06;
+}
+
+.input-group {
+  display: flex;
+  justify-content: left;
+}
+
+.input-group .form-control {
+  max-width: 300px;
+  /* Opcional: para limitar el ancho del campo de entrada */
+}
+
+.input-group .input-group-append .btn-narrow {
+  padding-left: 10px;
+  /* Menor padding en los lados */
+  padding-right: 10px;
+  /* Menor padding en los lados */
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+  background-color: #28a745;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 1px 10px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #28a745;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #218838;
+}
+
+
+
+.cta-buttonVolver {
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background 0.3s;
+  display: inline-block;
+  margin-bottom:  20px;
+  width: 140px;
+}
+
+.cta-buttonVolver:hover {
+  background: #144b08;
+}
+
+
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  .col-md-9 {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .list-group {
+    display: block !important;
+    /* Ensure the menu is always shown on larger screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .list-group {
+    display: none;
+    /* Hide menu by default on mobile */
+  }
+
+  .list-group.show {
+    display: block;
+    /* Show menu when .show class is added */
+  }
+
+  .col-md-3,
+  .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
