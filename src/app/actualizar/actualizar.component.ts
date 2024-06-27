@@ -71,6 +71,7 @@ export class ActualizarComponent {
   }
 
   onSubmit(): void {}
+  
   onBuscar(): void {
     /*const nit = parseInt(this.formbuscar.get('search')?.value || '', 10); // Convertir a número 
     if (!isNaN(nit)) {
